@@ -1,0 +1,33 @@
+{
+  "name": "multi-range-slider",
+  "version": "1.0.0",
+  "description": "A fully customizable multi-range slider component by Om Prashant Londhe.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "slider",
+    "om-londhe",
+    "multi-range",
+    "multi-range-slider",
+    "range-slider",
+    "range",
+    "range-component",
+    "slider-component",
+    "react-slider",
+    "react-range"
+  ],
+  "author": "Om Prashant Londhe",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.1.6"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
