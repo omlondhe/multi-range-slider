@@ -1,4 +1,6 @@
 import React from 'react'
+import './multiRangeSlider.css'
+
 
 function MultiRangeSlider() {
   return (
