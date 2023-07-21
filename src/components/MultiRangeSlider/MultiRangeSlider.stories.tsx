@@ -10,5 +10,5 @@ export default {
 
 export const MultiRangeSliderDefault = () => {
     const [value, setValue] = useState([1, 100]);
-    return <MultiRangeSlider min={1} max={100} value={value} onChange={setValue} />
+    return <MultiRangeSlider min={1} max={1000} value={value} onChange={setValue} height={20} sliderHeight={5} sliderActiveRadius={10} sliderInactiveRadius={10} />
 }
