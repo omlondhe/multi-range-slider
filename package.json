@@ -1,5 +1,5 @@
 {
-  "name": "multi-range-slider",
+  "name": "two-thumb-range-slider",
   "version": "1.0.0",
   "description": "A fully customizable multi-range slider component by Om Prashant Londhe.",
   "main": "dist/cjs/index.js",
