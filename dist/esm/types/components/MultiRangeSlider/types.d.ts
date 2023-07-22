@@ -1,11 +1,9 @@
-import { Dispatch, SetStateAction } from "react"
-
+import { Dispatch, SetStateAction } from "react";
 export interface MultiRangeSliderProps {
-    min: number
-    max: number
-    value: number[]
-    onChange: Dispatch<SetStateAction<number[]>>
-
+    min: number;
+    max: number;
+    value: number[];
+    onChange: Dispatch<SetStateAction<number[]>>;
     height?: number;
     sliderInactiveBackgroundColor?: string;
     sliderActiveBackgroundColor?: string;

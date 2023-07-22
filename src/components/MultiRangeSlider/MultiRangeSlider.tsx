@@ -7,10 +7,21 @@ const MultiRangeSlider = ({
   min,
   max,
   value,
-  onChange
+  onChange,
+  height = 30,
+  sliderInactiveBackgroundColor = '#e6e6e6',
+  sliderActiveBackgroundColor = '#ffa255',
+  sliderHeight = 2,
+  sliderActiveRadius = 0,
+  sliderInactiveRadius = 10,
+  thumbColor = '#ffb366',
+  thumbRadius = 20,
+  thumbBorder = "none",
+  thumbHeight = 20,
+  thumbWidth = 20
 }: MultiRangeSliderProps) => {
-  const [minVal, setMinVal] = useState(min)
-  const [maxVal, setMaxVal] = useState(max)
+  const [minVal, setMinVal] = useState(value[0])
+  const [maxVal, setMaxVal] = useState(value[1])
   const range = useRef<HTMLDivElement>(null)
   const minValRef = useRef<HTMLInputElement>(null)
   const maxValRef = useRef<HTMLInputElement>(null)
@@ -55,8 +66,18 @@ const MultiRangeSlider = ({
     onChange([minVal, maxVal])
   }, [minVal, maxVal, onChange])
 
+  useEffect(() => {
+    document.documentElement.style.setProperty('--multi-range-slider-thumb-color', thumbColor)
+    document.documentElement.style.setProperty('--multi-range-slider-border-radius', `${thumbRadius}px`)
+    document.documentElement.style.setProperty('--multi-range-slider-border', thumbBorder)
+    document.documentElement.style.setProperty('--multi-range-slider-height', `${thumbHeight}px`)
+    document.documentElement.style.setProperty('--multi-range-slider-width', `${thumbWidth}px`)
+  }, []);
+
   return (
-    <div className="container">
+    <div className="container" style={{
+      height
+    }}>
       <input
         type="range"
         min={min}
@@ -71,6 +92,10 @@ const MultiRangeSlider = ({
         className={`thumb thumb--zindex-3 ${
           minVal > max - 100 ? "thumb--zindex-5" : ""
         }`}
+        data-bg={thumbColor}
+        style={{
+          // backgroundColor: thumbColor
+        }}
       />
       <input
         type="range"
@@ -84,11 +109,23 @@ const MultiRangeSlider = ({
           event.target.value = value.toString()
         }}
         className="thumb thumb--zindex-4"
+        data-bg={thumbColor}
+        style={{
+          // backgroundColor: thumbColor
+        }}
       />
 
-      <div className="slider">
-        <div className="slider__track" />
-        <div ref={range} className="slider__range" />
+      <div className="slider" style={{
+        height: sliderHeight
+      }}>
+        <div className="slider__track" style={{
+          backgroundColor: sliderInactiveBackgroundColor,
+          borderRadius: sliderInactiveRadius
+        }} />
+        <div ref={range} className="slider__range" style={{
+          backgroundColor: sliderActiveBackgroundColor,
+          borderRadius: sliderActiveRadius
+        }} />
       </div>
     </div>
   )
